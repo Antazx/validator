@@ -8,15 +8,11 @@ const REQUIRED = true;
 
 function fieldValidator(validationSchema, objectToValidate) {
   let message = null;
-  const checkIfNull = (value) =>
-    value === undefined || value === null || value === "";
+  const checkIfNull = (value) => value === undefined || value === null || value === "";
   const nullError = (key) => `'${key}' is mandatory`;
   const typeError = (key, expectedType, currentType) =>
     `Expected type for '${key}' is: ${expectedType} but current type is: ${currentType}`;
-  const buildReturn = (message) => ({
-    validationError: message != null,
-    message,
-  });
+  const buildReturn = (message) => ({ validationError: message != null, message });
 
   function multipleCheck(checks, key, value) {
     const [expectedType] = checks;
